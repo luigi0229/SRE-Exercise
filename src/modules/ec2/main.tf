@@ -11,6 +11,7 @@ resource "aws_instance" "instance1" {
           sudo amazon-linux-extras install nginx1 -y
           sudo systemctl stop nginx
           sudo systemctl start nginx
+          sudo cp /home/ec2-user/index.html /usr/share/nginx/html/index.html
             EOF
 
 
@@ -20,18 +21,16 @@ resource "aws_instance" "instance1" {
 
   provisioner "file" {
     source = "${path.module}/index.html"
-    destination = "/usr/share/nginx/html/index.html"
+    destination = "~/index.html"
 
     connection {
-      host = aws_instance.instance1.public_ip
+      host = self.public_ip
       type = "ssh"
       user = "ec2-user"
       private_key = file("${path.module}/mykey.pem")
       # timeout = "3m"
     }
   }
-
-
 
 }
 
