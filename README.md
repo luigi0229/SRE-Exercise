@@ -32,6 +32,7 @@ This project uses [this repository](https://github.com/easingthemes/ssh-deploy) 
   * Navigate to the **settings** of the repository, then **Secrets** and add two secrets:
 
       `EC2_SSH_KEY` : `Paste your instance's Private Key Here`
+
       `PUBLIC_IP`   : `Paste your instance's public ip here`
 
   * Test it by making changes to your `index.html` on your local repo, and push the changes to the *main* branch.
