@@ -12,6 +12,7 @@ resource "aws_instance" "instance1" {
           sudo systemctl stop nginx
           sudo systemctl start nginx
           sudo cp /home/ec2-user/index.html /usr/share/nginx/html/index.html
+          sudo chown ec2-user /usr/share/nginx/html
             EOF
 
 
