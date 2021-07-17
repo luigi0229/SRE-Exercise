@@ -5,15 +5,15 @@ Deployment of a functioning VPC with a public subnet and a EC2 instance running 
 A workflow should then be manually created on the Github Repository to automatically replace the `index.html` file every time code gets committed to the main branch.
 This project uses [this repository](https://github.com/easingthemes/ssh-deploy) as a helper to the workflow action that copies the necessary files to the EC2 instance.
 
-## prerequisites
+## Prerequisites
 
-  * AWS CLI environment configured and initialized with necessary credentials
+  * AWS CLI environment configured and initialized with necessary credentials.
   * Terraform CLI installed and configured.
 
 
 ## Deployment
 
-  * Clone the repo
+  * Clone the repo.
 
   * Navigate to `src/modules/ec2` and create a private and public key that will be used for the instance. The following command can be used on Unix environments: `ssh-keygen -f mykey.pem`. If a different name is used for the key, update the `main.tf` file to reflect that.
 
@@ -23,13 +23,13 @@ This project uses [this repository](https://github.com/easingthemes/ssh-deploy) 
   terraform apply
   ```
 
-  After following these steps, you should be able to navigate to the public IP of your instance (which gets displayed as an output on your terminal) and see the Nginx landing page with the content of `src/modules/ec2/index.html`.
+  After following these steps, you should be able to navigate to the public IP of your instance (which gets displayed as an output on your terminal) and see the Nginx landing page with the contents of `src/modules/ec2/index.html`.
 
 ## CI/CD
 
   To automate the deployment of `index.html`, follow these steps on your own forked version of this repo:
 
-  * Navigate to the **settings** of the repository, then **Secrets** and add two secrets
+  * Navigate to the **settings** of the repository, then **Secrets** and add two secrets:
 
       `EC2_SSH_KEY` : `Paste your instance's Private Key Here`
       `PUBLIC_IP`   : `Paste your instance's public ip here`
