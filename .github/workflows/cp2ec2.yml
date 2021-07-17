@@ -30,7 +30,6 @@ jobs:
         uses: easingthemes/ssh-deploy@v2.1.5
         env:
           SSH_PRIVATE_KEY: ${{ secrets.EC2_SSH_KEY }}
-          SOURCE: "./"
           REMOTE_HOST: ${{ secrets.PUBLIC_IP }}
           REMOTE_USER: "ec2-user"
           SOURCE: "src/modules/index.html"
