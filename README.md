@@ -80,3 +80,19 @@ This project uses [this repository](https://github.com/easingthemes/ssh-deploy) 
   ```
 
   * Test it by making changes to your `index.html` on your local repo, and push the changes to the *main* branch.
+
+## Rollback
+
+  To restore the html file to a previous revision, use the github restore command, with the number of revisions back you need. Example below:
+
+  `restore --source BRANCH~Number of Revisions src/modules/ec2/index.html`
+
+  `restore --source main~2 src/modules/ec2/index.html`
+
+## Troubleshooting
+
+  * Going to the public IP address of the instance doesn't load anything:
+    Confirm that the EC2 instance has a public IP address. Manually log in to the EC2 dashboard to check if necessary.
+
+  * Can't SSH
+    Make sure you created the public and private keys, and that the name matches the terraform resource arguments in `/src/modules/ec2/main.tf`
