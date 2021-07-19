@@ -17,15 +17,6 @@ resource "aws_subnet" "public_subnet" {
   }
 }
 
-# resource "aws_subnet" "private_subnet" {
-#   vpc_id     = aws_vpc.tf_VPC.id
-#   cidr_block = var.private_cidr
-#
-#   tags = {
-#     Name = "Private_Subnet"
-#   }
-# }
-
 resource "aws_internet_gateway" "gw" {
   vpc_id = aws_vpc.tf_VPC.id
 
