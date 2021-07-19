@@ -2,7 +2,7 @@
 
 Deployment of a functioning VPC with a public subnet and a EC2 instance running Nginx. The `index.html` file located on `src/modules/ec2` gets uploaded and used as the Nginx default landing page.
 
-A workflow should then be manually created on the Github Repository to automatically replace the `index.html` file every time code gets committed to the main branch.
+A workflow Action gets created to automatically replace the `index.html` file every time code gets committed to the main branch. (See CI/CD section for this implementation)
 This project uses [this repository](https://github.com/easingthemes/ssh-deploy) as a helper to the workflow action that copies the necessary files to the EC2 instance.
 
 ## Prerequisites
@@ -27,7 +27,7 @@ This project uses [this repository](https://github.com/easingthemes/ssh-deploy) 
 
 ## CI/CD
 
-  To automate the deployment of `index.html`, follow these steps on your own forked version of this repo:
+  To automate the deployment of `index.html`, follow these steps **in your own forked/cloned version** of this repo:
 
   * Navigate to the **settings** of the repository, then **Secrets** and add two secrets:
 
